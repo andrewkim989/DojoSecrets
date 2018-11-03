@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Dojo Secrets Login</title>
+
+        <link rel = "stylesheet"
+        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity = "sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin = "anonymous">
+
+        <style>
+            #wrapper {
+                padding-left: 30px;
+                background-color: rgb(202, 202, 202);
+            }
+            h1 {
+                text-align: center;
+                padding-top: 10px;
+            }
+            #register {
+                width: 500px;
+                margin: 20px;
+                margin-left: 50px;
+                padding: 20px;
+                background-color: #6691e0;
+                border-radius: 10px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            #login {
+                width: 500px;
+                margin: 20px;
+                padding: 20px;
+                background-color: #87a1d4;
+                border-radius: 10px;
+                display: inline-block;
+                vertical-align: top;
+            }
+            input[type = text], input[type = password], input[type = date] {
+                padding: 3px 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 250px;
+                box-sizing: border-box;
+            }
+            p {
+                margin-left: 30px;
+            }
+            .error {
+                color: rgb(182, 29, 29);
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>Dojo Secrets Login Page</h1>
+            <div id = "register">
+                <h2>Register here!</h2>
+                <% if (messages.register) { %>
+                    <% for (var x of messages.register) { %>
+                        <div class = "error"><%= x %></div>
+                    <% } %>
+                <% } %>
+                <br>
+                <form action = "/register" method = "post">
+                    First Name:
+                    <br>
+                    <input type = "text" name = "first_name">
+                    <br>
+                    <br>
+                
+                    Last Name:
+                    <br>
+                    <input type = "text" name = "last_name">
+                    <br>
+                    <br>
+            
+                    Email:
+                    <br>
+                    <input type = "text" name = "email">
+                    <br>
+                    <br>
+            
+                    Password: (Must be 5 characters long)
+                    <br>
+                    <input type = "password" name = "password">
+                    <br>
+                    <br>
+            
+                    Birthday:
+                    <br>
+                    <input type = "date" name = "birthday">
+                    <br>
+                    <br>
+                    <input type = "submit" value = "Register!">
+                </form>
+            </div>
+            <div id = "login">
+                <h2>Login here!</h2>
+                <% if (messages.login) { %>
+                    <div class = "error"><%= messages.login %></div>
+                <% } %>
+                <br>
+                <form action = "/login" method = "post">
+                    Email:
+                    <br>
+                    <input type = "text" name = "email">
+                    <br>
+                    <br>
+                    Password:
+                    <br>
+                    <input type = "password" name = "password">
+                    <br>
+                    <br>
+                    <input type = "submit" value = "Login!">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
